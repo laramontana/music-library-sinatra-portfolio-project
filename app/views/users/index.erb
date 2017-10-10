@@ -1,1 +1,13 @@
 <h1>Hello, <%= @user.username %></h1>
+
+<% if !@user.artists.empty? && !@user.songs.empty? %>
+
+    <h3>This is your music library</h3>
+
+    <% @user.songs.each do |song| %>
+      <ul>
+        <%= song.artist.name %> --- <%= song.name %>
+      </ul>
+    <% end %>
+
+<% end %>
