@@ -9,5 +9,16 @@
         <%= song.artist.name %> --- <%= song.name %>
       </ul>
     <% end %>
-
 <% end %>
+    <!-- <% else @user.artists.empty? && @user.songs.empty? %> -->
+
+       <!-- <h2>Your library is currently empty :(</h2> -->
+
+
+    <h2>You can add new artists and songs
+    if you cannot find them in our library below:</h2>
+
+    <ul>
+  <li><h3><a href="/artists">-*-*-*-All artists-*-*-*-</a></li></h3>
+  <li><h3><a href="/songs">-*-*-*-All songs-*-*-*-</a></li></h3>
+    </ul>
