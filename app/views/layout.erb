@@ -20,8 +20,10 @@
       <%= yield %>
       <% if logged_in? %>
 
-      <h4><a href="/logout">Logout</a></h4>
-
+      <!-- <h4><a href="/logout">Logout</a></h4> -->
+          <form action="/logout" method="POST">
+            <input type="submit" value="Logout">
+          </form>
       <% end %>
 
     <footer class="branding">

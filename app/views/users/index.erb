@@ -2,23 +2,22 @@
 
 <% if !@user.artists.empty? && !@user.songs.empty? %>
 
-    <h3>This is your music library</h3>
+    <h2>This is your music library</h2>
 
     <% @user.songs.each do |song| %>
       <ul>
-        <%= song.artist.name %> --- <%= song.name %>
+        <%= song.artist.name %> --- "<%= song.name %>"
       </ul>
     <% end %>
+
+    <% elsif @user.artists.empty? && @user.songs.empty? %>
+       <h2>Your music library is currently empty :(</h2>
 <% end %>
-    <!-- <% else @user.artists.empty? && @user.songs.empty? %> -->
 
-       <!-- <h2>Your library is currently empty :(</h2> -->
-
-
-    <h2>You can add new artists and songs
+    <h2>Add new artists and songs,
     if you cannot find them in our library below:</h2>
 
     <ul>
-  <li><h3><a href="/artists">-*-*-*-All artists-*-*-*-</a></li></h3>
-  <li><h3><a href="/songs">-*-*-*-All songs-*-*-*-</a></li></h3>
+  <li><h2><a href="/artists">-*-All artists-*-</a></li></h2>
+  <li><h2><a href="/songs">-*-All songs-*-</a></li></h2>
     </ul>

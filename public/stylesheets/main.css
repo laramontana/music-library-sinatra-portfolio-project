@@ -1,9 +1,9 @@
 A {
-  text-decoration:none;
-  color: black;
+  /*text-decoration:none;*/
+  color: #1F7A8C;
 }
 a:hover {
-    color: hotpink;
+    color: #A31621;
 }
 
 @media screen {
