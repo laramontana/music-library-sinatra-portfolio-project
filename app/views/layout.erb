@@ -18,6 +18,11 @@
     <img src="http://www.musicgraphicsgalore.net/music/staff11.gif" class="img-responsive main-image">
 
       <%= yield %>
+      <% if logged_in? %>
+
+      <a href="/logout">Logout</a>
+
+      <% end %>
 
     <footer class="branding">
       <small>&copy; 2017 <strong>MusicLibrarySinatraPortfolioProject</strong></small>
