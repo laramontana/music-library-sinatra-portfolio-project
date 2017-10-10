@@ -1,3 +1,11 @@
+A {
+  text-decoration:none;
+  color: black;
+}
+a:hover {
+    color: hotpink;
+}
+
 @media screen {
   /* --- Reset Styles --- */
   * {
