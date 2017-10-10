@@ -1,0 +1,7 @@
+<ul>
+  <% @songs.each do |song| %>
+    <h2><li>"<%= song.name%>" by <%= song.artist.name%></li></h2>
+  <% end %>
+</ul>
+
+<h3>Back to <a href="/">my library</a>.</h3>
