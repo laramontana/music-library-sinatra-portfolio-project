@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: #003459;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -31,12 +31,13 @@
   }
 
   h1 {
+    border-bottom: 2px solid #ccc;
     font-size: 36px;
     line-height: 54px;
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    /*border-bottom: 2px solid #ccc;*/
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
