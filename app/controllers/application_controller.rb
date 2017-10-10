@@ -37,11 +37,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
-    if !logged_in?
-      erb :login
-    else
+    if logged_in?
       flash[:message] = "You are already logged in."
       redirect '/'
+    else
+      erb :login
     end
   end
 
