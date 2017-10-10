@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>Hello, <%= @user.username %></h1>
 
 <% if !@user.artists.empty? && !@user.songs.empty? %>

@@ -21,7 +21,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/signup' do
-    erb :signup
+    if logged_in?
+      session.clear
+      erb :signup
+    else
+      erb :signup
+    end
   end
 
   post '/signup' do
@@ -32,7 +37,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
-    erb :login
+    if !logged_in?
+      erb :login
+    else
+      flash[:message] = "You are already logged in."
+      redirect '/'
+    end
   end
 
   post '/login' do
