@@ -11,7 +11,13 @@ class SongsController < ApplicationController
   end
 
   get '/songs/:slug' do
-    @song = Song.find_by_slug(params[:slug])
+    if logged_in?
+      @song = Song.find_by_slug(params[:slug])
+      erb :'/songs/show'
+    else
+      flash[:message] = "Please login to see all songs."
+      redirect '/login'
+    end
   end
 
 end

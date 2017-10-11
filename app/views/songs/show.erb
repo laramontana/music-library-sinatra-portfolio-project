@@ -1,0 +1,11 @@
+<h2>Song: <%=@song.name%> <br>
+Artist: <%=@song.artist.name%></h2>
+
+
+<% if @song.user == current_user%>
+    <h3><a href="/songs/:slug/edit">Edit</a> <br>
+    <a href="/songs/delete">Delete</a></h3>
+<% end %>
+
+<h3>Back to <a href="/">my library</a></h3>
+<h3>Back to <a href="/songs">all songs</a></h3>
