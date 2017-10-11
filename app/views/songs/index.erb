@@ -6,7 +6,9 @@
 
 <ul>
   <% @songs.each do |song| %>
-    <h2><li>"<%= song.name%>" by <%= song.artist.name%></li></h2>
+    <!-- <h2><li>"<%= song.name%>" by <%= song.artist.name%></li></h2> -->
+    <h3><a href="/songs/<%= song.slug%>">"<%= song.name%>"</a> by <%= song.artist.name%></h3>
+
   <% end %>
 </ul>
 
