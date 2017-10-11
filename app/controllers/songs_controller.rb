@@ -24,6 +24,8 @@ class SongsController < ApplicationController
     if !params[:song][:name].empty? && !params[:song][:artist].empty?
       artist = Artist.find_or_create_by(name: params[:song][:artist])
       @song = Song.create(name: params[:song][:name], artist: artist, user_id: current_user.id)
+
+      flash[:message] = "The song is successfully added."
       redirect "/songs/#{@song.slug}"
     else
       flash[:message] = "Both fields must be filled in. Please complete the form."

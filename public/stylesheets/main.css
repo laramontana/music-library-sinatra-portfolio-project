@@ -6,6 +6,11 @@ a:hover {
     color: #A31621;
 }
 
+.flash {
+    color: red;
+    font-size: 20px;
+  }
+
 @media screen {
   /* --- Reset Styles --- */
   * {

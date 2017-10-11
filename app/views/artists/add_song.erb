@@ -1,4 +1,16 @@
-<h1>NEW SONG TO <%=@artist.name%></h1>
-<form class="" action="index.html" method="post">
+<h2>Add a new song to <%=@artist.name%> library</h2>
+
+<div class="flash">
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+</div>
+
+<form action="/artists/<%=@artist.slug%>/add_song" method="post">
+  <h3><label>Song name</label></h3>
+  <input type="text" name="song_name">
+
+  <input type="submit" value="Add song">
+
 
 </form>

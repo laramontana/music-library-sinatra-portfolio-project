@@ -30,4 +30,17 @@ class ArtistsController < ApplicationController
     end
   end
 
+  post '/artists/:slug/add_song' do
+    @artist = Artist.find_by_slug(params[:slug])
+    if !params[:song_name].empty?
+      Song.create(name: params[:song_name], artist: @artist, user: current_user)
+
+      flash[:message] = "The song is successfully added."
+      redirect "/artists/#{@artist.slug}"
+    else
+      flash[:message] = "Enter the song name."
+      redirect "/artists/#{@artist.slug}/add_song"
+    end
+  end
+
 end

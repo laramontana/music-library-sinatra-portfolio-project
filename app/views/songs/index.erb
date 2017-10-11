@@ -7,7 +7,6 @@
 <ul>
   <% @songs.each do |song| %>
     <h3><a href="/songs/<%= song.slug%>">"<%= song.name%>"</a> by <%= song.artist.name%></h3>
-
   <% end %>
 </ul>
 

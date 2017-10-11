@@ -13,7 +13,6 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if logged_in?
-      # binding.pry
       @user = current_user
       erb :'/users/index'
     else
