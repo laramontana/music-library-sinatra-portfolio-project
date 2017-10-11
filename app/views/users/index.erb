@@ -12,7 +12,7 @@
     Click on a song to add any changes.</h2>
 
     <% @user.songs.each do |song| %>
-    <li><a href="/songs/<%=song.slug%>">"<%= song.name %>"</a></li>
+    <li><a href="/songs/<%=song.slug%>"><%=song.artist.name%> - "<%= song.name %>"</a></li>
     <% end %>
 
     <% elsif @user.artists.empty? && @user.songs.empty? %>
