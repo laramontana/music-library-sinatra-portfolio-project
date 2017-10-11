@@ -10,4 +10,8 @@ class SongsController < ApplicationController
     end
   end
 
+  get '/songs/:slug' do
+    @song = Song.find_by_slug(params[:slug])
+  end
+
 end
