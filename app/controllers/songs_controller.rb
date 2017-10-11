@@ -10,6 +10,15 @@ class SongsController < ApplicationController
     end
   end
 
+  get '/songs/new' do
+    if logged_in?
+      erb :'/songs/create_song'
+    else
+      flash[:message] = "Please login to add a new song."
+      redirect '/login'
+    end
+  end
+
   get '/songs/:slug' do
     if logged_in?
       @song = Song.find_by_slug(params[:slug])
