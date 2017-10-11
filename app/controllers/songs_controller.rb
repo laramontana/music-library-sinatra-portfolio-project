@@ -43,7 +43,7 @@ class SongsController < ApplicationController
       else artist = Artist.create(name: params[:song][:artist], user_id: current_user.id)
         @song.update(name: params[:song][:name], artist: artist)
       end
-      flash[:message] = "The song successfully updated."
+      flash[:message] = "The song is successfully updated."
       redirect to "/songs/#{@song.slug}"
     else
         flash[:message] = "Please complete the form. Both fields must be filled in."
@@ -57,7 +57,7 @@ class SongsController < ApplicationController
       if @song.user == current_user
         @song.destroy
 
-        flash[:message] = "The song was successfully deleted."
+        flash[:message] = "The song is successfully deleted."
         redirect "/songs"
       else
         flash[:message] = "You cannot delete another user's song."
