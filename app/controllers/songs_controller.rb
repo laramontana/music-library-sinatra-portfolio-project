@@ -26,7 +26,7 @@ class SongsController < ApplicationController
       if @song.user == current_user
         erb :'/songs/edit_song'
       else
-        flash[:message] = "You can change only songs you've added."
+        flash[:message] = "You cannot change another user's song."
         redirect to "/songs/#{@song.slug}"
       end
     else
@@ -48,6 +48,24 @@ class SongsController < ApplicationController
     else
         flash[:message] = "Please complete the form. Both fields must be filled in."
         redirect to "/songs/#{@song.slug}/edit"
+    end
+  end
+
+  get '/songs/:slug/delete' do
+    if logged_in?
+      @song = Song.find_by_slug(params[:slug])
+      if @song.user == current_user
+        @song.destroy
+
+        flash[:message] = "You've successfully deleted the song."
+        redirect "/songs"
+      else
+        flash[:message] = "You cannot delete another user's song."
+        redirect to "/songs/#{@song.slug}"
+      end
+    else
+      flash[:message] = "Please login to see a song page."
+      redirect to "/login"
     end
   end
 

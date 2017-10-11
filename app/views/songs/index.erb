@@ -1,3 +1,9 @@
+<div class="flash">
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+</div>
+
 <ul>
   <% @songs.each do |song| %>
     <h2><li>"<%= song.name%>" by <%= song.artist.name%></li></h2>
