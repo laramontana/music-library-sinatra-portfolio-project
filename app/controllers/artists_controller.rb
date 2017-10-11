@@ -20,4 +20,14 @@ class ArtistsController < ApplicationController
     end
   end
 
+  get '/artists/:slug/add_song' do
+    if logged_in?
+      @artist = Artist.find_by_slug(params[:slug])
+      erb :'/artists/add_song'
+    else
+      flash[:message] = "Please login to add a song."
+      redirect '/login'
+    end
+  end
+
 end
