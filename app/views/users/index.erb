@@ -13,7 +13,7 @@
 
     <% @user.songs.each do |song| %>
       <ul>
-        <a href="/songs/<%=song.slug%>"><%= song.artist.name %> --- "<%= song.name %>"</a>
+        <h3><a href="/songs/<%=song.slug%>"><%= song.artist.name %> - "<%= song.name %>"</a></h3>
       </ul>
     <% end %>
 
@@ -21,7 +21,7 @@
        <h2>Your music library is currently empty :(</h2>
 <% end %>
     <br>
-    <h2>Add new artists and songs,
+    <h2>Add new songs,
     if you cannot find them in our library below:</h2>
 
   <li><h2><a href="/artists">All artists</a></li></h2>
