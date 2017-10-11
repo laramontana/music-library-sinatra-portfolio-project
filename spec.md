@@ -4,7 +4,7 @@ Specs:
 - [x] Use Sinatra to build the app (gem 'sinatra' is required in Gemfile)
 - [x] Use ActiveRecord for storing information in a database (gem 'activerecord' are required in Gemfile)
 - [x] Include more than one model class (User, Song, Artist)
-- [x] Include at least one has_many relationship (User has_many Songs and Artists, Artists has_many Songs, User has_many Songs through: Artists)
+- [x] Include at least one has_many relationship (User has_many Artists, Artists has_many Songs, User has_many Songs through: Artists)
 - [x] Include user accounts (User has to be signed up and logged in to see any content of the app)
 - [ ] Ensure that users can't modify content created by other users
 - [ ] Include user input validations
