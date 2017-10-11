@@ -1,8 +1,10 @@
+<h1>Hello, <%= @user.username %></h1>
+
+<div class="flash">
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
 <% end %>
-
-<h1>Hello, <%= @user.username %></h1>
+</div>
 
 <% if !@user.artists.empty? && !@user.songs.empty? %>
 

@@ -1,1 +1,20 @@
-<h1>edit song form</h1>
+<h2>Edit <%=@song.name%></h2>
+
+<div class="flash">
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+</div>
+
+<form action="/songs/<%= @song.slug %>/edit" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label>New name</label>
+  <input type="text" name="song[name]" value="<%=@song.name%>"> <br>
+
+  <label>New artist</label>
+  <input type="text" name="song[artist]" value="<%=@song.artist.name%>">
+
+  <input type="submit" value="submit">
+
+</form>

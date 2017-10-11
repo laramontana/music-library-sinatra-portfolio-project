@@ -35,4 +35,20 @@ class SongsController < ApplicationController
     end
   end
 
+  patch '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    if !params[:song][:artist].empty? && !params[:song][:name].empty?
+      if artist ||= Artist.find_by(name: params[:song][:artist])
+        @song.update(name: params[:song][:name], artist: artist)
+      else artist = Artist.create(name: params[:song][:artist], user_id: current_user.id)
+        @song.update(name: params[:song][:name], artist: artist)
+      end
+      flash[:message] = "You've successfully updated the song."
+      redirect to "/songs/#{@song.slug}"
+    else
+        flash[:message] = "Please complete the form. Both fields must be filled in."
+        redirect to "/songs/#{@song.slug}/edit"
+    end
+  end
+
 end
