@@ -15,7 +15,7 @@ class SongsController < ApplicationController
       @song = Song.find_by_slug(params[:slug])
       erb :'/songs/show'
     else
-      flash[:message] = "Please login to the song page."
+      flash[:message] = "Please login to see the song page."
       redirect '/login'
     end
   end
@@ -43,7 +43,7 @@ class SongsController < ApplicationController
       else artist = Artist.create(name: params[:song][:artist], user_id: current_user.id)
         @song.update(name: params[:song][:name], artist: artist)
       end
-      flash[:message] = "You've successfully updated the song."
+      flash[:message] = "The song successfully updated."
       redirect to "/songs/#{@song.slug}"
     else
         flash[:message] = "Please complete the form. Both fields must be filled in."
@@ -57,7 +57,7 @@ class SongsController < ApplicationController
       if @song.user == current_user
         @song.destroy
 
-        flash[:message] = "You've successfully deleted the song."
+        flash[:message] = "The song was successfully deleted."
         redirect "/songs"
       else
         flash[:message] = "You cannot delete another user's song."
