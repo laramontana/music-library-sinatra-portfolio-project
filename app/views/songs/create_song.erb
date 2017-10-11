@@ -12,10 +12,10 @@
   <input type="text" name="song[name]"> <br>
 
   <h3><label>Choose an artist</label></h3>
-  <select name="song[artist]">
-    <option value="nil">-</option>
+  <select name="song[selected_artist]">
+    <option value="">-</option>
     <% Artist.all.each do |artist| %>
-    <option value="<%=artist.id%>"><%=artist.name%></option>
+    <option value="<%=artist.name%>"><%=artist.name%></option>
     <% end %>
   </select> <br>
 

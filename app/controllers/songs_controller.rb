@@ -19,6 +19,18 @@ class SongsController < ApplicationController
     end
   end
 
+  post '/songs/new' do
+    params[:song][:artist] = params[:song][:selected_artist] if !params[:song][:selected_artist].empty?
+    if !params[:song][:name].empty? && !params[:song][:artist].empty?
+      artist = Artist.find_or_create_by(name: params[:song][:artist])
+      @song = Song.create(name: params[:song][:name], artist: artist, user_id: current_user.id)
+      redirect "/songs/#{@song.slug}"
+    else
+      flash[:message] = "Both fields must be filled in. Please complete the form."
+      redirect '/songs/new'
+    end
+  end
+
   get '/songs/:slug' do
     if logged_in?
       @song = Song.find_by_slug(params[:slug])
@@ -55,7 +67,7 @@ class SongsController < ApplicationController
       flash[:message] = "The song is successfully updated."
       redirect to "/songs/#{@song.slug}"
     else
-        flash[:message] = "Please complete the form. Both fields must be filled in."
+        flash[:message] = "Both fields must be filled in. Please complete the form."
         redirect to "/songs/#{@song.slug}/edit"
     end
   end
