@@ -1,9 +1,13 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h2>Song: <%=@song.name%> <br>
 Artist: <%=@song.artist.name%></h2>
 
 
 <% if @song.user == current_user%>
-    <h3><a href="/songs/:slug/edit">Edit</a> <br>
+    <h3><a href="/songs/<%=@song.slug%>/edit">Edit</a> <br>
     <a href="/songs/delete">Delete</a></h3>
 <% end %>
 
