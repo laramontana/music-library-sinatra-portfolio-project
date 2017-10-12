@@ -77,11 +77,14 @@ class SongsController < ApplicationController
   get '/songs/:slug/delete' do
     if logged_in?
       @song = Song.find_by_slug(params[:slug])
+      @artist = @song.artist
       if @song.user == current_user
         @song.destroy
 
         flash[:message] = "The song is successfully deleted."
-        redirect "/songs"
+        redirect "/artists/#{@artist.slug}"
+        # redirect "/songs"
+
       else
         flash[:message] = "You cannot delete another user's song."
         redirect to "/songs/#{@song.slug}"
