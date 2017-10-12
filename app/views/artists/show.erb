@@ -1,13 +1,20 @@
-<h2>Songs by
-    <%=@artist.name%>:</h2>
+<% if !@artist.songs.empty? %>
 
-<ul>
-    <%@artist.songs.each do |song| %>
-    <li>
-        <a href="/songs/<%= song.slug%>"><%= song.name%></a>
-    </li>
-    <% end %>
-</ul>
+  <h2>Songs by
+      <%=@artist.name%>:</h2>
+
+  <ul>
+      <%@artist.songs.each do |song| %>
+      <li>
+          <a href="/songs/<%= song.slug%>"><%= song.name%></a>
+      </li>
+      <% end %>
+  </ul>
+<% else %>
+  <h2>There are no songs by
+      <%=@artist.name%>... yet</h2>
+<% end %>
+
 <br>
 <h3>
     <a href="/artists/<%=@artist.slug%>/add_song">Add a song</a>
