@@ -1,3 +1,9 @@
+<div class="flash">
+    <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
+</div>
+
 <% if !@artist.songs.empty? %>
 
   <h2>Songs by
