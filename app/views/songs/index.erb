@@ -1,13 +1,21 @@
+<h1>Main library: songs</h1>
+
 <div class="flash">
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+    <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
 </div>
 
 <ul>
-  <% @songs.each do |song| %>
-    <h3><a href="/songs/<%= song.slug%>">"<%= song.name%>"</a> by <%= song.artist.name%></h3>
-  <% end %>
+    <% @songs.each do |song| %>
+    <h3>
+        <a href="/songs/<%= song.slug%>">"<%= song.name%>"</a>
+        by
+        <%= song.artist.name%>
+    </h3>
+    <% end %>
 </ul>
-
-<h3>Back to <a href="/">my library</a>.</h3>
+<br>
+<h3>Back to
+    <a href="/">my library</a>
+</h3>

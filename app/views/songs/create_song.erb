@@ -1,28 +1,34 @@
 <h2>Please fill in this form to add a song to the library</h2>
 
 <div class="flash">
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+    <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
 </div>
 
 <form action="/songs/new" method="POST">
+    <h3>
+        <label>Song name</label>
+    </h3>
 
-  <h3><label>Song name</label></h3>
-  <input type="text" name="song[name]"> <br>
+    <input type="text" name="song[name]">
+    <br>
+    <h3>
+        <label>Choose an artist</label>
+    </h3>
 
-  <h3><label>Choose an artist</label></h3>
-  <select name="song[selected_artist]">
-    <option value="">-</option>
-    <% Artist.all.each do |artist| %>
-    <option value="<%=artist.name%>"><%=artist.name%></option>
-    <% end %>
-  </select> <br>
+    <select name="song[selected_artist]">
+        <option value="">-</option>
+        <% Artist.all.each do |artist| %>
+        <option value="<%=artist.name%>"><%=artist.name%></option>
+        <% end %>
+    </select>
+    <br>
+    <h3>
+        <label>Or add a new one</label>
+    </h3>
 
-  <h3><label>Or add a new one</label></h3>
-  <input type="text" name="song[artist]"> <br>
+    <input type="text" name="song[artist]">
 
-
-  <input type="submit" value="Add song">
-
+    <input type="submit" value="Add song">
 </form>

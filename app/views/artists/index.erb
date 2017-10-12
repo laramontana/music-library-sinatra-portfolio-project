@@ -1,7 +1,15 @@
-<ul>
-  <% @artists.each do |a| %>
-    <h2><li><a href="/artists/<%= a.slug%>"><%= a.name%></a></li></h2>
-  <% end %>
-</ul>
+<h1>Main library: artists</h1>
 
-<h3>Back to <a href="/">my library</a>.</h3>
+<ul>
+    <% @artists.each do |a| %>
+    <h2>
+        <li>
+            <a href="/artists/<%= a.slug%>"><%= a.name%></a>
+        </li>
+    </h2>
+    <% end %>
+</ul>
+<br>  
+<h3>Back to
+    <a href="/">my library</a>
+</h3>

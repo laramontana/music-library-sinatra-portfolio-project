@@ -1,20 +1,25 @@
-<h2>Edit <%=@song.name%></h2>
+<h2>Edit
+    <%=@song.name%>
+</h2>
 
 <div class="flash">
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+    <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
 </div>
 
 <form action="/songs/<%= @song.slug %>/edit" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="_method" value="PATCH">
 
-  <h3><label>New name</label></h3>
-  <input type="text" name="song[name]" value="<%=@song.name%>"> <br>
+    <h3>
+        <label>New name</label>
+    </h3>
+    <input type="text" name="song[name]" value="<%=@song.name%>">
+    <br>
+    <h3>
+        <label>New artist</label>
+    </h3>
+    <input type="text" name="song[artist]" value="<%=@song.artist.name%>">
 
-  <h3><label>New artist</label></h3>
-  <input type="text" name="song[artist]" value="<%=@song.artist.name%>">
-
-  <input type="submit" value="submit">
-
+    <input type="submit" value="submit">
 </form>

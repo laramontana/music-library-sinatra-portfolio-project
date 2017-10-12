@@ -1,16 +1,28 @@
 <div class="flash">
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+    <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
 </div>
 
-<h2>Song: <%=@song.name%> <br>
-Artist: <a href="/artists/<%= @song.artist.slug%>"><%= @song.artist.name%></a></h2>
+<h2>Song:
+    <%=@song.name%>
+    <br>
+    Artist:
+    <a href="/artists/<%= @song.artist.slug%>"><%= @song.artist.name%></a>
+</h2>
 
 <% if @song.user == current_user%>
-    <h3><a href="/songs/<%=@song.slug%>/edit">Edit</a> <br>
-    <a href="/songs/<%=@song.slug%>/delete">Delete</a></h3>
+<h3>
+    <a href="/songs/<%=@song.slug%>/edit">Edit</a>
+    <br>
+    <a href="/songs/<%=@song.slug%>/delete">Delete</a>
+</h3>
 <% end %>
 
-<h3>Back to <a href="/">my library</a></h3>
-<h3>Back to <a href="/songs">all songs</a></h3>
+<h3>Back to
+    <a href="/">my library</a>
+</h3>
+
+<h3>Back to
+    <a href="/songs">all songs</a>
+</h3>

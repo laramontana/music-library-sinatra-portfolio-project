@@ -1,26 +1,41 @@
-<h1>Hello, <%= @user.username %></h1>
+<h1>Hello,
+    <%= @user.username %>
+</h1>
 
 <div class="flash">
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+    <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
 </div>
 
 <% if !@user.artists.empty? && !@user.songs.empty? %>
-
-    <h2>This is your music library. <br>
-    Click on a song to add any changes.</h2>
-
-    <% @user.songs.each do |song| %>
-    <li><a href="/songs/<%=song.slug%>"><%=song.artist.name%> - "<%= song.name %>"</a></li>
-    <% end %>
-
-    <% elsif @user.artists.empty? && @user.songs.empty? %>
-       <h2>Your music library is currently empty :(</h2>
-<% end %>
+<h2>This is your music library.
     <br>
-    <h2>Add <a href="/songs/new">new songs</a>,
-    if you cannot find them in our library below:</h2>
+    Click on a song to add any changes.
+</h2>
 
-  <li><h2><a href="/artists">All artists</a></li></h2>
-  <li><h2><a href="/songs">All songs</a></li></h2>
+<% @user.songs.each do |song| %>
+<li>
+    <a href="/songs/<%=song.slug%>"><%=song.artist.name%>
+        - "<%= song.name %>"</a>
+</li>
+<% end %>
+
+<% elsif @user.artists.empty? && @user.songs.empty? %>
+<h2>Your music library is currently empty :(</h2>
+<% end %>
+<br>
+<h2>Add
+    <a href="/songs/new">new songs</a>, if you cannot find them in our library below:
+</h2>
+
+<li>
+    <h2>
+        <a href="/artists">All artists</a>
+    </li>
+</h2>
+<li>
+    <h2>
+        <a href="/songs">All songs</a>
+    </li>
+</h2>

@@ -8,8 +8,8 @@ Specs:
 - [x] Include user accounts (User has to be signed up and logged in to see any content of the app)
 - [x] Ensure that users can't modify content created by other users (User can edit and delete only songs they created)
 - [x] Include user input validations (User cannot submit the form with empty fields)
-- [x] Display validation failures to user with error message (/index; /songs/index; songs/:slug; songs/:slug/edit; /songs/new; /artists/:slug/add_song)
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Display validation failures and confirmations to user with message (/index; /songs/index; songs/:slug; songs/:slug/edit; /songs/new; /artists/:slug/add_song)
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [x] You have a large number of small Git commits
