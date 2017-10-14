@@ -3,17 +3,11 @@
     library
 </h2>
 
-<div class="flash">
-    <% if flash.has?(:message) %>
-    <%= flash[:message] %>
-    <% end %>
-</div>
-
 <form action="/artists/<%=@artist.slug%>/add_song" method="post">
     <h3>
         <label>Song name</label>
     </h3>
     <input type="text" name="song_name">
-    
+
     <input type="submit" value="Add song">
 </form>

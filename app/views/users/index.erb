@@ -2,12 +2,6 @@
     <%= @user.username %>
 </h1>
 
-<div class="flash">
-    <% if flash.has?(:message) %>
-    <%= flash[:message] %>
-    <% end %>
-</div>
-
 <% if !@user.artists.empty? && !@user.songs.empty? %>
 <h2>This is your music library.
     <br>

@@ -30,10 +30,14 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-    @user = User.create(params[:user])
-    session[:user_id] = @user.id
-
-    redirect '/'
+    @user = User.new(params[:user])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect '/'
+    else
+      flash[:message] = @user.errors.full_messages.join('. ')
+      redirect '/signup'
+    end
   end
 
   get '/login' do
@@ -70,5 +74,14 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
   end
+
+  private
+
+    def authenticate_user #-> Possible message arg*
+      if !logged_in?
+        flash[:message] = "You must be logged in to access this page"
+        redirect '/login'
+      end
+    end
 
 end

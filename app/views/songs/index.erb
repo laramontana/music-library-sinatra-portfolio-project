@@ -1,11 +1,5 @@
 <h1>Main library: songs</h1>
 
-<div class="flash">
-    <% if flash.has?(:message) %>
-    <%= flash[:message] %>
-    <% end %>
-</div>
-
 <ul>
     <% @songs.each do |song| %>
     <h3>

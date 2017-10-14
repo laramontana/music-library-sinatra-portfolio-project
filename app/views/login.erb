@@ -1,9 +1,3 @@
-<div class="flash">
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-</div>
-
 <form action="/login" method="post">
   <h2><label>Username</label>
   <input type="text" name="user[username]"></h2>

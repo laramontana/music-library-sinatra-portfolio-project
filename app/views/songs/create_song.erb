@@ -1,11 +1,5 @@
 <h2>Please fill in this form to add a song to the library</h2>
 
-<div class="flash">
-    <% if flash.has?(:message) %>
-    <%= flash[:message] %>
-    <% end %>
-</div>
-
 <form action="/songs/new" method="POST">
     <h3>
         <label>Song name</label>
@@ -19,8 +13,8 @@
 
     <select name="song[selected_artist]">
         <option value="">-</option>
-        <% Artist.all.each do |artist| %>
-        <option value="<%=artist.name%>"><%=artist.name%></option>
+        <% @artists.each do |artist| %>
+          <option value="<%=artist.name%>"><%=artist.name%></option>
         <% end %>
     </select>
     <br>

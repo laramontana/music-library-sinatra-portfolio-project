@@ -17,6 +17,12 @@
   <div class="wrapper">
     <img src="http://www.musicgraphicsgalore.net/music/staff11.gif" class="img-responsive main-image">
 
+    <div class="flash">
+      <% if flash.has?(:message) %>
+        <%= flash[:message] %>
+      <% end %>
+    </div>
+
       <%= yield %>
       <% if logged_in? %>
 
